@@ -29,20 +29,16 @@ public class DataService {
 
 	public List<CountryResponse> getAllCountriesData(){
 		List<Country> countryList = countryRepository.findAll();
-		
 		if(countryList == null || countryList.isEmpty()) throw new NoDataFound("Couldn't Find Any Data For The Countries");
-		
 		List <CountryResponse> countryResponseList = countryList.stream().map(country -> new CountryResponse(country)).collect(Collectors.toList()); 
-		
 		return countryResponseList;
 	}
+	
 	public Page<CustomerResponse> getAllCustomersData(int page , int size){
 		PageRequest pageRequest = PageRequest.of(page, size , Sort.by("id").ascending());
 		Page<Customer> pageResult = customerRepository.findAll(pageRequest);
 		List<Customer> customerList = customerRepository.findAll(size , (page*size));
 		List<CustomerResponse> customerResponseList =  customerList.stream().map(customer -> new CustomerResponse(customer)).collect(Collectors.toList());
-		
-
 		return new PageImpl<CustomerResponse>(customerResponseList, pageRequest, pageResult.getTotalElements());
 	}
 }
