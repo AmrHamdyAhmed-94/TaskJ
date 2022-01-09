@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jpay</groupId>
-	<artifactId>com.jpay</artifactId>
+	<artifactId>JpayExercise</artifactId>
 	<version>0.0.1</version>
 	<name>JpayExercise</name>
 	<description>Jpay Exercise for Mobile Numbers Validation</description>
